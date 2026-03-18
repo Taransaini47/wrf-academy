@@ -77,7 +77,9 @@ export default function App() {
             <ThreeDMarqueeDemo />
             <div className="h-20 md:h-40" />
             <Contact />
-            <LampDemo />
+            <div className="hidden md:block">
+              <LampDemo />
+            </div>
             <div className="h-40 md:h-60 bg-white dark:bg-[#0B0B0F] relative z-10" />
             <MacbookScrollDemo />
             <KeyboardDemo />
