@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'motion/react';
-import { ChevronRight, Play } from 'lucide-react';
+import { ChevronRight, Phone } from 'lucide-react';
 import { PointerHighlight } from './ui/pointer-highlight';
 
 const skills = [
@@ -65,7 +65,7 @@ export default function Hero() {
             
             <div className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start">
               <motion.a
-                href="#courses"
+                href="#contact"
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
                 className="inline-flex items-center justify-center gap-2 px-8 py-4 rounded-full bg-primary-600 text-white font-medium hover:bg-primary-700 transition-colors shadow-lg shadow-primary-500/30"
@@ -73,13 +73,14 @@ export default function Hero() {
                 Join Now <ChevronRight className="w-5 h-5" />
               </motion.a>
               
-              <motion.button
+              <motion.a
+                href="tel:+9101724505902"
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
                 className="inline-flex items-center justify-center gap-2 px-8 py-4 rounded-full glass text-slate-900 dark:text-white font-medium hover:bg-white/20 dark:hover:bg-white/10 transition-colors"
               >
-                <Play className="w-5 h-5 text-primary-600 dark:text-primary-400" /> Watch Demo
-              </motion.button>
+                <Phone className="w-5 h-5 text-primary-600 dark:text-primary-400" /> Call Now
+              </motion.a>
             </div>
           </motion.div>
 
