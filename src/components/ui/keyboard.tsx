@@ -95,21 +95,23 @@ function Row({ children }: { children: React.ReactNode }) {
   return <div className="mb-[2px] flex w-full shrink-0 gap-[2px]">{children}</div>;
 }
 
-function KeyboardKey({
-  className,
-  childrenClassName,
-  containerClassName,
-  children,
-  keyCode,
-  highlight = false,
-}: {
+interface KeyboardKeyProps {
   className?: string;
   childrenClassName?: string;
   containerClassName?: string;
   children?: React.ReactNode;
   keyCode?: string;
   highlight?: boolean;
-}) {
+}
+
+const KeyboardKey: React.FC<KeyboardKeyProps> = ({
+  className,
+  childrenClassName,
+  containerClassName,
+  children,
+  keyCode,
+  highlight = false,
+}) => {
   const { playSoundDown, playSoundUp, pressedKeys, setPressed, setReleased } =
     useKeyboardSound();
   const isPressed = keyCode ? pressedKeys.has(keyCode) : false;
@@ -164,17 +166,19 @@ function KeyboardKey({
   );
 }
 
+interface ModifierKeyProps {
+  className?: string;
+  containerClassName?: string;
+  children?: React.ReactNode;
+  keyCode?: string;
+}
+
 function ModifierKey({
   className,
   containerClassName,
   children,
   keyCode,
-}: {
-  className?: string;
-  containerClassName?: string;
-  children?: React.ReactNode;
-  keyCode?: string;
-}) {
+}: ModifierKeyProps) {
   const { playSoundDown, playSoundUp, pressedKeys, setPressed, setReleased } =
     useKeyboardSound();
   const isPressed = keyCode ? pressedKeys.has(keyCode) : false;
@@ -485,7 +489,7 @@ export const Keyboard = ({
       <div
         ref={containerRef}
         className={cn(
-          "mx-auto w-fit [zoom:0.8] sm:[zoom:1.25] md:[zoom:1.5] lg:[zoom:1.75] xl:[zoom:2]",
+          "mx-auto w-fit scale-[0.7] sm:scale-[1.25] md:scale-[1.5] lg:scale-[1.75] xl:scale-[2] origin-top",
           className,
         )}
       >
